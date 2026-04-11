@@ -49,7 +49,7 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Smooth scroll para animaciones de números (Stats Counter)
+// Smooth scroll para animaciones de números
 function animateCounters() {
     const counters = document.querySelectorAll('.stat-number');
     
