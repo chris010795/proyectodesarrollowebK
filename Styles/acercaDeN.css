@@ -8,7 +8,6 @@
 }
 
 :root {
-    /* ROJO como PRIMARIO, Azul como secundario */
     --primary-color: #E30613;
     --secondary-color: #002147;
     --text-dark: #2c3e50;
@@ -56,35 +55,16 @@ body {
     height: 70px;
 }
 
-.logo-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-
-/* ✅ NUEVAS REGLAS PARA LOGO DE IMAGEN */
 .logo-img {
-    height: 60px;
+    height: 50px;
     width: auto;
-    max-height: 70px;
-    transition: all 0.3s ease;
-    filter: drop-shadow(2px 2px 4px rgba(227,6,19,0.3));
 }
 
-.logo-link:hover .logo-img {
-    transform: scale(1.05);
-    filter: drop-shadow(4px 4px 8px rgba(227,6,19,0.4));
-}
-
-/* LOGO EN HEADER */
-.nav-container .logo-img {
-    height: 55px;
-}
-
-/* LOGO EN FOOTER */
-.footer .logo-img {
-    height: 70px;
-    filter: brightness(1.1) drop-shadow(2px 2px 4px rgba(255,255,255,0.3));
+/* LOGO CENTRADO - Nuevo contenedor centrado */
+.logo-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .nav-menu {
@@ -140,36 +120,6 @@ body {
     transition: 0.3s;
 }
 
-/* Hero Section */
-.hero {
-    background: #E30613;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--white);
-    margin-top: 70px;
-}
-
-.hero-title {
-    font-family: 'Nexa', sans-serif;
-    font-weight: 700;
-    font-size: clamp(3.5rem, 7vw, 5.5rem);
-    margin-bottom: 1.5rem;
-    color: var(--white);
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
-}
-
-.hero-subtitle {
-    font-size: 1.6rem;
-    color: var(--white);
-    font-weight: 300;
-    max-width: 700px;
-    margin: 0 auto 2rem;
-    line-height: 1.5;
-}
-
 /* About Section */
 .about {
     padding: 140px 0 100px;
@@ -180,7 +130,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5rem;
-    align-items: center;
+    align-items: start;
 }
 
 .section-title {
@@ -199,41 +149,104 @@ body {
     line-height: 1.85;
 }
 
+/* ✅ FEATURES GRID - ASIMÉTRICO con ORDEN ESPECÍFICO */
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-areas: 
+        "confianza servicio"
+        "confianza calidez";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     gap: 2.5rem;
-}
-
-.feature {
-    text-align: center;
-    padding: 3rem 2rem;
-    background: var(--white);
-    border-radius: 20px;
-    box-shadow: var(--shadow);
-    transition: all 0.4s ease;
-    border-top: 4px solid #E30613;
+    margin-bottom: 3rem;
+    height: 600px;
     position: relative;
 }
 
-.feature:hover {
-    transform: translateY(-15px);
-    box-shadow: var(--shadow-hover);
-    border-top-color: #002147;
+/*ORDEN ESPECÍFICO POR CLASE */
+.feature--confianza {
+    grid-area: confianza;
+    padding: 4rem 2.5rem;
+    border-radius: 25px 15px 15px 25px;
+    border-top: 5px solid #E30613;
+    border-right: 4px solid #002147;
+}
+
+.feature--servicio {
+    grid-area: servicio;
+    padding: 3rem 3.5rem;
+    border-radius: 15px 25px 25px 15px;
+    border-bottom: 5px solid #E30613;
+    border-left: 3px solid rgba(227,6,19,0.3);
+    align-self: end;
+}
+
+.feature--calidez {
+    grid-area: calidez;
+    padding: 3.5rem 2rem;
+    margin-top: 2rem;
+    border-radius: 15px 25px 25px 15px;
+    border-left: 6px solid #002147;
+    border-top: 4px solid rgba(0,33,71,0.2);
+}
+
+/* Estilos base para todos los features */
+.feature {
+    text-align: center;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.feature::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #E30613, transparent);
+    opacity: 0.8;
 }
 
 .feature-icon {
-    font-size: 4rem;
+    font-size: 4.2rem;
     color: #002147;
     margin-bottom: 1.5rem;
     display: block;
+    transition: all 0.4s ease;
+}
+
+.feature:hover .feature-icon {
+    transform: scale(1.15) rotate(8deg);
+    color: #E30613;
+    text-shadow: 0 0 20px rgba(227,6,19,0.4);
 }
 
 .feature h3 {
-    font-size: 1.45rem;
+    font-size: 1.5rem;
     margin-bottom: 1.2rem;
     color: #002147;
     font-weight: 600;
+    font-family: 'Nexa', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.feature p {
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    line-height: 1.75;
+    opacity: 0.9;
+}
+
+.feature:hover {
+    transform: translateY(-12px) scale(1.025);
+    box-shadow: var(--shadow-hover);
 }
 
 .about-image img {
@@ -252,7 +265,7 @@ body {
 }
 
 .about-final {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: #002147;
     background: var(--white);
@@ -260,10 +273,21 @@ body {
     border-radius: 20px;
     box-shadow: var(--shadow);
     border-left: 6px solid #002147;
-    margin-top: 3rem;
+    
+    /* Posicionamiento a la derecha y centrado */
+    position: absolute;
+    top: 85%;
+    right: 19%;
+   
+    transform: translateY(-50%);
+    margin-top: 0;
+    
+    /* Opcional: ancho máximo para mejor legibilidad */
+    max-width: 500px;
+    width: 90%;
 }
 
-/* Footer */
+/*FOOTER - Contenido centrado */
 .footer {
     background: #002147;
     color: var(--white);
@@ -275,11 +299,24 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 4rem;
     margin-bottom: 4rem;
+    text-align: center; /*Centrado del texto */
+    justify-items: center; /*Centrado de elementos */
+}
+
+.footer-section {
+    text-align: center; /*Centrado adicional */
 }
 
 .footer-section p {
-    margin-top: 1rem;
-    opacity: 0.9;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+    max-width: 400px; /* Ancho máximo para mejor legibilidad */
+    margin: 0 auto; /* Centrado horizontal del párrafo */
+}
+
+.footer-section h3 {
+    margin-bottom: 1.5rem;
+    color: var(--white);
 }
 
 .footer-bottom {
@@ -362,22 +399,40 @@ body {
         text-align: center;
     }
     
-    .hero {
-        height: 85vh;
-        padding: 2rem 20px;
+    /* Responsive Features - ORDEN LINEAL */
+    .features-grid {
+        grid-template-areas: 
+            "confianza"
+            "servicio"
+            "calidez";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        height: auto;
+        gap: 2rem;
     }
     
-    /* ✅ RESPONSIVE LOGO */
+    .feature--confianza,
+    .feature--servicio,
+    .feature--calidez {
+        margin: 0 !important;
+        border: none;
+        border-top: 4px solid #E30613;
+        padding: 3rem 2rem !important;
+        border-radius: 20px !important;
+    }
+    
     .logo-img {
-        height: 50px;
-    }
-    
-    .nav-container .logo-img {
         height: 45px;
     }
     
-    .footer .logo-img {
-        height: 60px;
+    /*Logo centrado en mobile también */
+    .logo-container {
+        position: static;
+        transform: none;
+        order: -1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -386,24 +441,12 @@ body {
         font-size: 2.4rem;
     }
     
-    .hero-title {
-        font-size: 3rem;
-    }
-    
-    /* ✅ RESPONSIVE LOGO MÓVIL */
-    .logo-img {
-        height: 45px;
-    }
-    
-    .nav-container .logo-img {
-        height: 40px;
-    }
-    
-    .footer .logo-img {
-        height: 55px;
-    }
-    
     .container {
         padding: 0 15px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
     }
 }
