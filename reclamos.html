@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulario de reclamos, sugerencias y mejoras de Inversiones Cabrera.">
+    <title>Reclamos y Mejoras | Inversiones Cabrera</title>
+    <link rel="stylesheet" href="Styles/reclamos.css">
+</head>
+<body>
+    <header class="header">
+        <div class="contenedor">
+            <h1 class="logo">Inversiones Cabrera</h1>
+            <nav class="nav">
+                <a href="paginainicio.html">Inicio</a>
+                <a href="acercaDeNosotros.html">Nosotros</a>
+                <a href="productos.html">Productos</a>
+                <a href="ubicacion.html">Ubicación</a>
+                <a href="redes_sociales.html">Redes</a>
+                <a href="reclamos.html" class="activo">Reclamos y Mejoras</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="pagina-encabezado">
+            <div class="contenedor">
+                <h2>Reclamos, sugerencias y mejoras</h2>
+                <p>
+                    En Inversiones Cabrera valoramos la opinión de nuestros clientes.
+                    Completa esta encuesta para compartir tu experiencia, realizar un reclamo
+                    o proponernos mejoras en nuestro servicio.
+                </p>
+            </div>
+        </section>
+
+        <section class="seccion">
+            <div class="contenedor">
+                <div class="formulario-contenedor">
+                    <form id="formReclamos" class="formulario">
+                        <div class="grupo-formulario">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre completo">
+                            <small class="error" id="errorNombre"></small>
+                        </div>
+
+                        <div class="grupo-formulario">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="Ejemplo: 9876-5432">
+                            <small class="error" id="errorTelefono"></small>
+                        </div>
+
+                        <div class="grupo-formulario">
+                            <label for="tipo">Tipo de comentario</label>
+                            <select id="tipo" name="tipo">
+                                <option value="">Seleccione una opción</option>
+                                <option value="reclamo">Reclamo</option>
+                                <option value="sugerencia">Sugerencia</option>
+                                <option value="mejora">Mejora</option>
+                                <option value="felicitacion">Felicitación</option>
+                            </select>
+                            <small class="error" id="errorTipo"></small>
+                        </div>
+
+                        <div class="grupo-formulario">
+                            <label for="calificacion">¿Cómo califica nuestro servicio?</label>
+                            <select id="calificacion" name="calificacion">
+                                <option value="">Seleccione una opción</option>
+                                <option value="excelente">Excelente</option>
+                                <option value="bueno">Bueno</option>
+                                <option value="regular">Regular</option>
+                                <option value="malo">Malo</option>
+                            </select>
+                            <small class="error" id="errorCalificacion"></small>
+                        </div>
+
+                        <div class="grupo-formulario">
+                            <label for="mensaje">Detalle de su comentario</label>
+                            <textarea id="mensaje" name="mensaje" rows="6" placeholder="Escriba aquí su reclamo, sugerencia o propuesta de mejora"></textarea>
+                            <small class="error" id="errorMensaje"></small>
+                        </div>
+
+                        <div class="grupo-formulario">
+                            <label>
+                                <input type="checkbox" id="acepta">
+                                Confirmo que la información proporcionada es correcta.
+                            </label>
+                            <small class="error" id="errorAcepta"></small>
+                        </div>
+
+                        <button type="submit" class="btn-enviar">Enviar encuesta</button>
+                        <p id="mensajeExito" class="mensaje-exito"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="contenedor">
+            <p>&copy; 2026 Inversiones Cabrera. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="JavaScript/reclamos.js"></script>
+</body>
+</html>

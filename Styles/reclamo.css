@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: #003859;
+    padding: 20px 0;
+}
+
+.logo {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.nav a:hover,
+.nav .activo {
+    background-color: #ed3237;
+}
+
+.pagina-encabezado {
+    background-color: #ffffff;
+    padding: 60px 20px 30px;
+    text-align: center;
+}
+
+.pagina-encabezado h2 {
+    color: #003859;
+    margin-bottom: 12px;
+    font-size: 2rem;
+}
+
+.pagina-encabezado p {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.seccion {
+    padding: 50px 0;
+}
+
+.formulario-contenedor {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.formulario {
+    display: grid;
+    gap: 18px;
+}
+
+.grupo-formulario {
+    display: flex;
+    flex-direction: column;
+}
+
+.grupo-formulario label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #003859;
+}
+
+.grupo-formulario input,
+.grupo-formulario select,
+.grupo-formulario textarea {
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.grupo-formulario input:focus,
+.grupo-formulario select:focus,
+.grupo-formulario textarea:focus {
+    outline: none;
+    border-color: #003859;
+}
+
+.btn-enviar {
+    background-color: #ed3237;
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-enviar:hover {
+    background-color: #c6282d;
+}
+
+.error {
+    color: #d11a2a;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    min-height: 18px;
+}
+
+.mensaje-exito {
+    color: #0f7a32;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.footer {
+    background-color: #003859;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    .pagina-encabezado h2 {
+        font-size: 1.7rem;
+    }
+
+    .formulario-contenedor {
+        padding: 20px;
+    }
+}
