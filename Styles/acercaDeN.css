@@ -149,7 +149,7 @@ body {
     line-height: 1.85;
 }
 
-/* ✅ FEATURES GRID - ASIMÉTRICO con ORDEN ESPECÍFICO */
+
 .features-grid {
     display: grid;
     grid-template-areas: 
@@ -190,7 +190,7 @@ body {
     border-top: 4px solid rgba(0,33,71,0.2);
 }
 
-/* Estilos base para todos los features */
+
 .feature {
     text-align: center;
     background: var(--white);
@@ -282,49 +282,49 @@ body {
     transform: translateY(-50%);
     margin-top: 0;
     
-    /* Opcional: ancho máximo para mejor legibilidad */
+    /* ancho máximo para mejor legibilidad */
     max-width: 500px;
     width: 90%;
 }
 
-/*FOOTER - Contenido centrado */
+/*FOOTER*/
 .footer {
     background: #002147;
     color: var(--white);
-    padding: 100px 0 40px;
+    padding: 50px 0 25px; 
 }
 
 .footer-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 4rem;
-    margin-bottom: 4rem;
-    text-align: center; /*Centrado del texto */
-    justify-items: center; /*Centrado de elementos */
+    gap: 2.5rem; 
+    margin-bottom: 2.5rem; 
+    text-align: center;
+    justify-items: center;
 }
 
 .footer-section {
-    text-align: center; /*Centrado adicional */
+    text-align: center;
 }
 
 .footer-section p {
     color: rgba(255,255,255,0.85);
-    line-height: 1.7;
-    max-width: 400px; /* Ancho máximo para mejor legibilidad */
-    margin: 0 auto; /* Centrado horizontal del párrafo */
+    line-height: 1.6; 
+    max-width: 350px; 
+    margin: 0 auto;
 }
 
 .footer-section h3 {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem; 
     color: var(--white);
 }
 
 .footer-bottom {
     text-align: center;
-    padding-top: 3.5rem;
+    padding-top: 2rem; 
     border-top: 1px solid rgba(255,255,255,0.15);
     color: rgba(255,255,255,0.75);
-    font-size: 1rem;
+    font-size: 0.95rem; 
 }
 
 /* Animaciones */
@@ -399,7 +399,7 @@ body {
         text-align: center;
     }
     
-    /* Responsive Features - ORDEN LINEAL */
+   
     .features-grid {
         grid-template-areas: 
             "confianza"
@@ -422,7 +422,7 @@ body {
     }
     
     .logo-img {
-        height: 45px;
+       width: 45px;
     }
     
     /*Logo centrado en mobile también */
@@ -433,6 +433,16 @@ body {
         width: 100%;
         display: flex;
         justify-content: center;
+    }
+
+    
+    .footer {
+        padding: 40px 0 20px; 
+    }
+    
+    .footer-content {
+        gap: 2rem;
+        margin-bottom: 2rem;
     }
 }
 
@@ -447,6 +457,6 @@ body {
     
     .footer-content {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 2rem; 
     }
 }
