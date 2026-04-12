@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Nexa:wght@700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #E30613;   
+    --accent-color: #002147;     
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+    --bg-light: #f9fafb;
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(227,6,19,0.1);
+    --nexa-bold: 'Nexa', sans-serif;
+    --nexa-black: 'Nexa', sans-serif;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+/* Header y Navegación */
+header {
+    background: var(--white);
+    box-shadow: var(--shadow);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.company-logo {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: 900;
+    font-family: var(--nexa-black);
+    color: var(--accent-color); 
+    text-decoration: none;
+    letter-spacing: -0.02em;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--accent-color);  
+    transition: 0.3s;
+}
+
+/* Contenedor General */
+.galeria-container {
+    background-color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+/* Titulo Galeria */
+.titulo-galeria {
+    font-size: 5rem;
+    color: #111;
+    background-color: #e30613; /* rojo tipo tu diseño */
+    color: white;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+/* CARRUSEL */
+.carousel {
+    width: 100%;
+    height: 850px;
+    background-color: white;
+    position: relative;
+}
+
+/*Descripcion Galeria*/
+.descripcion-galeria {
+    background-color: #e30613; /* rojo tipo tu diseño */
+    color: white;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+/* Ventana visible */
+.viewport {
+    height: 100%;
+}
+
+/* Pista que se mueve */
+.track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Cada slide */
+.slide {
+    flex: 0 0 100%;
+    height: 100%;
+}
+
+/* Imagen */
+.slide img {
+    width: 80%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Botones */
+
+.btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 10;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Hover bonito */
+.btn:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+
+/* Footer */
+footer {
+    background: var(--accent-color);
+    color: var(--white);
+    text-align: center;
+    padding: 3rem 2rem 1.5rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+}
+
+.footer-logo-img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+    
+}
+
+.footer-logo-img:hover {
+    transform: scale(1.05);
+}
+
+.footer-section.footer-logo h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-family: var(--nexa-black);
+    color: var(--white);
+    letter-spacing: -0.02em;
+}
+
+.footer-section p {
+    opacity: 0.9;
+    font-size: 1rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: var(--shadow);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .hero-img {
+        height: 300px;
+    }
+    
+    .hero {
+        padding: 100px 1rem 60px;
+    }
+
+    .news {
+        padding: 60px 1rem;
+    }
+
+    .footer-logo-container {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .footer-logo-img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .footer-section.footer-logo h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(2.5rem, 8vw, 3.5rem);
+    }
+
+    .footer-logo-img {
+        width: 45px;
+        height: 45px;
+    }
+}
