@@ -1,14 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/nexa');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:root {
+    --primary-color: #E30613;
+    --accent-color: #002147;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+    --bg-light: #f8f9fa;
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(227, 6, 19, 0.12);
+    --shadow-hover: 0 18px 40px rgba(0, 33, 71, 0.18);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-    color: #333;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
+    color: var(--text-dark);
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    overflow-x: hidden;
 }
 
 .contenedor {
@@ -17,131 +36,199 @@ body {
     margin: 0 auto;
 }
 
+/* Header */
 .header {
-    background-color: #003859;
-    padding: 20px 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-}
-
-.logo {
-    text-align: center;
-    color: #ffffff;
-    margin-bottom: 15px;
-    font-size: 2rem;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
 .nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.nav a {
-    color: #ffffff;
+.logo {
+    font-size: 2rem;
+    font-family: 'Nexa', sans-serif;
+    font-weight: 700;
+    color: var(--accent-color);
     text-decoration: none;
-    font-weight: bold;
-    padding: 8px 14px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
 }
 
-.nav a:hover,
-.nav .activo {
-    background-color: #ed3237;
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
 }
 
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: 0.3s ease;
+    position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a.activo {
+    color: var(--primary-color);
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    left: 0;
+    bottom: -6px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.activo::after {
+    width: 100%;
+}
+
+/* Encabezado de página */
 .pagina-encabezado {
-    background-color: #ffffff;
-    padding: 60px 20px 30px;
+    background: linear-gradient(135deg, var(--primary-color), #ff4d57);
+    color: var(--white);
     text-align: center;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    padding: 140px 20px 70px;
 }
 
 .pagina-encabezado h2 {
-    color: #003859;
-    margin-bottom: 12px;
-    font-size: 2.2rem;
+    font-family: 'Nexa', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 15px;
 }
 
 .pagina-encabezado p {
-    max-width: 750px;
+    max-width: 760px;
     margin: 0 auto;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
+    opacity: 0.95;
 }
 
+/* Sección productos */
 .seccion {
-    padding: 50px 0 70px;
+    padding: 70px 0;
 }
 
-/* GRID */
 .grid-productos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    margin-top: 30px;
+    gap: 30px;
 }
 
-/* TARJETAS */
 .card-producto {
-    background-color: #ffffff;
-    border-radius: 16px;
+    background: var(--white);
+    border-radius: 18px;
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.35s ease;
 }
 
 .card-producto:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.14);
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
 }
 
-/* IMÁGENES */
 .card-producto img {
     width: 100%;
     height: 260px;
     object-fit: contain;
     object-position: center;
-    background: #f4f6f8;
-    padding: 18px;
+    background: linear-gradient(135deg, #f4f6f8, #eceff3);
+    padding: 14px;
     display: block;
+    transition: transform 0.35s ease;
 }
 
-/* TEXTO */
+.card-producto:hover img {
+    transform: scale(1.06);
+}
+
 .card-producto h3 {
-    color: #003859;
-    margin: 18px 18px 8px;
+    color: var(--accent-color);
+    font-family: 'Nexa', sans-serif;
     font-size: 1.45rem;
+    margin: 18px 18px 10px;
 }
 
 .card-producto p {
     margin: 0 18px 22px;
+    color: var(--text-dark);
     font-size: 1rem;
-    color: #444;
+    line-height: 1.7;
 }
 
+/* Footer */
 .footer {
-    background-color: #003859;
-    color: #ffffff;
+    background: var(--accent-color);
+    color: var(--white);
     text-align: center;
-    padding: 22px 0;
-    margin-top: 20px;
+    padding: 2.5rem 1.5rem 1.5rem;
+    margin-top: 30px;
 }
 
-/* RESPONSIVE */
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto 1.5rem;
+}
+
+.footer h3 {
+    font-family: 'Nexa', sans-serif;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+.footer p {
+    opacity: 0.9;
+    font-size: 0.98rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+/* Responsive */
 @media (max-width: 900px) {
     .grid-productos {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 768px) {
-    .pagina-encabezado h2 {
-        font-size: 1.8rem;
+    .pagina-encabezado {
+        padding: 160px 20px 60px;
     }
 
-    .logo {
-        font-size: 1.7rem;
+    .pagina-encabezado h2 {
+        font-size: 2.2rem;
     }
 
     .card-producto img {
@@ -154,12 +241,15 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .nav {
-        gap: 10px;
+    .logo {
+        font-size: 1.6rem;
     }
 
-    .nav a {
-        padding: 7px 10px;
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .nav-links a {
         font-size: 0.95rem;
     }
 }
