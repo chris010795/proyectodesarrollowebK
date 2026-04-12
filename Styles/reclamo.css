@@ -1,15 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nexa:wght@700;900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:root {
+    --primary-color: #E30613;
+    --accent-color: #002147;
+    --text-dark: #1f2937;
+    --white: #ffffff;
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: #f4f6f8;
     color: #333;
     line-height: 1.6;
-    padding-top: 90px; 
+    padding-top: 90px;
 }
 
 .contenedor {
@@ -49,10 +59,12 @@ body {
 }
 
 .logo-text {
-    font-size: 1.7rem;
-    font-weight: bold;
-    color: #002147;
+    font-size: 1.8rem;
+    font-weight: 900;
+    font-family: 'Nexa', sans-serif;
+    color: var(--accent-color);
     text-decoration: none;
+    letter-spacing: -0.02em;
 }
 
 .nav-links {
@@ -90,9 +102,6 @@ body {
     width: 100%;
 }
 
-
-
-
 .pagina-encabezado {
     background-color: #ffffff;
     padding: 60px 20px 30px;
@@ -103,6 +112,8 @@ body {
     color: #003859;
     margin-bottom: 12px;
     font-size: 2rem;
+    font-family: 'Nexa', sans-serif;
+    font-weight: 700;
 }
 
 .pagina-encabezado p {
@@ -132,7 +143,7 @@ body {
 }
 
 .grupo-formulario label {
-    font-weight: bold;
+    font-weight: 600;
     margin-bottom: 8px;
     color: #003859;
 }
@@ -144,6 +155,7 @@ body {
     border: 1px solid #cbd5e1;
     border-radius: 8px;
     font-size: 1rem;
+    font-family: 'Inter', sans-serif;
 }
 
 .grupo-formulario input:focus,
@@ -160,7 +172,8 @@ body {
     padding: 14px;
     border-radius: 8px;
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
     cursor: pointer;
 }
 
@@ -181,7 +194,6 @@ body {
     text-align: center;
     margin-top: 10px;
 }
-
 
 .footer {
     background-color: #002147;
@@ -205,11 +217,15 @@ body {
     object-fit: contain;
 }
 
+.footer-content h3 {
+    font-family: 'Nexa', sans-serif;
+    font-weight: 700;
+}
+
 .footer-bottom {
     margin-top: 15px;
     font-size: 0.9rem;
 }
-
 
 @media (max-width: 768px) {
     .pagina-encabezado h2 {
@@ -227,5 +243,6 @@ body {
 
     .nav-links {
         justify-content: center;
+        flex-wrap: wrap;
     }
 }
