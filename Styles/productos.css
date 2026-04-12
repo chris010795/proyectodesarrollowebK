@@ -28,6 +28,7 @@ body {
     color: var(--text-dark);
     background: linear-gradient(135deg, #f8f9fa, #e9ecef);
     overflow-x: hidden;
+    padding-top: 95px;
 }
 
 .contenedor {
@@ -36,7 +37,6 @@ body {
     margin: 0 auto;
 }
 
-/* Header */
 .header {
     background: var(--white);
     box-shadow: var(--shadow);
@@ -55,8 +55,20 @@ body {
     align-items: center;
 }
 
-.logo {
-    font-size: 2rem;
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.company-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-size: 1.8rem;
     font-family: 'Nexa', sans-serif;
     font-weight: 700;
     color: var(--accent-color);
@@ -98,12 +110,12 @@ body {
     width: 100%;
 }
 
-/* Encabezado de página */
+
 .pagina-encabezado {
     background: linear-gradient(135deg, var(--primary-color), #ff4d57);
     color: var(--white);
     text-align: center;
-    padding: 140px 20px 70px;
+    padding: 80px 20px 70px;
 }
 
 .pagina-encabezado h2 {
@@ -119,7 +131,6 @@ body {
     opacity: 0.95;
 }
 
-/* Sección productos */
 .seccion {
     padding: 70px 0;
 }
@@ -172,7 +183,6 @@ body {
     line-height: 1.7;
 }
 
-/* Footer */
 .footer {
     background: var(--accent-color);
     color: var(--white);
@@ -186,9 +196,23 @@ body {
     margin: 0 auto 1.5rem;
 }
 
+.footer-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.footer-logo-img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
 .footer h3 {
     font-family: 'Nexa', sans-serif;
-    margin-bottom: 10px;
+    margin: 0;
     font-size: 1.4rem;
 }
 
@@ -204,7 +228,6 @@ body {
     opacity: 0.85;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
     .grid-productos {
         grid-template-columns: repeat(2, 1fr);
@@ -223,8 +246,12 @@ body {
 }
 
 @media (max-width: 768px) {
+    body {
+        padding-top: 130px;
+    }
+
     .pagina-encabezado {
-        padding: 160px 20px 60px;
+        padding: 60px 20px 60px;
     }
 
     .pagina-encabezado h2 {
@@ -241,8 +268,8 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .logo {
-        font-size: 1.6rem;
+    .logo-text {
+        font-size: 1.5rem;
     }
 
     .nav-links {
