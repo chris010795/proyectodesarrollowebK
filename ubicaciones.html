@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubicaciones</title>
+    <link rel="stylesheet" href="styles/calendario.css">
+    <link rel="stylesheet" href="styles/ubicaciones.css">
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Inicio</a>
+    <a href="eventos.html">Eventos</a>
+    <a href="redes.html">Redes</a>
+    <a href="ubicaciones.html">Ubicaciones</a>
+</nav>
+
+<main class="calendar-container">
+
+    <header class="calendar-header">
+        <h1>Ubicaciones</h1>
+        <p>Nuestras sucursales</p>
+    </header>
+
+    <section class="locations-section">
+
+        <article class="location-card">
+            <h2>Sucursal Centro</h2>
+            <img src="img/ubicacion1.jpg" alt="Centro">
+            <p>Dirección: Barrio Centro</p>
+            <p>Horario: 8:00 AM - 5:00 PM</p>
+            <button class="btn-map" data-map="map1">Ver mapa</button>
+            <div id="map1" class="map-container"></div>
+        </article>
+
+        <article class="location-card">
+            <h2>Sucursal Norte</h2>
+            <img src="img/ubicacion2.jpg" alt="Norte">
+            <p>Dirección: Colonia Norte</p>
+            <p>Horario: 9:00 AM - 6:00 PM</p>
+            <button class="btn-map" data-map="map2">Ver mapa</button>
+            <div id="map2" class="map-container"></div>
+        </article>
+
+        <article class="location-card">
+            <h2>Sucursal Sur</h2>
+            <img src="img/ubicacion3.jpg" alt="Sur">
+            <p>Dirección: Zona Sur</p>
+            <p>Horario: 8:30 AM - 5:30 PM</p>
+            <button class="btn-map" data-map="map3">Ver mapa</button>
+            <div id="map3" class="map-container"></div>
+        </article>
+
+    </section>
+
+</main>
+
+<script src="javascript/ubicaciones.js"></script>
+
+</body>
+</html>

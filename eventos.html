@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Eventos</title>
+    <link rel="stylesheet" href="styles/calendario.css">
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Inicio</a>
+    <a href="eventos.html">Eventos</a>
+</nav>
+
+<main class="calendar-container">
+
+    <header class="calendar-header">
+        <h1>Calendario de Eventos</h1>
+        <p>Versión básica</p>
+    </header>
+
+    <section class="search-panel">
+        <h2>Buscar fecha</h2>
+
+        <div class="search-fields">
+            <div class="field">
+                <label for="search-day">Día</label>
+                <input type="number" id="search-day" min="1" max="31">
+            </div>
+
+            <div class="field">
+                <label for="search-month">Mes</label>
+                <select id="search-month">
+                    <option value="0">Enero</option>
+                    <option value="1">Febrero</option>
+                    <option value="2">Marzo</option>
+                    <option value="3">Abril</option>
+                    <option value="4">Mayo</option>
+                    <option value="5">Junio</option>
+                    <option value="6">Julio</option>
+                    <option value="7">Agosto</option>
+                    <option value="8">Septiembre</option>
+                    <option value="9">Octubre</option>
+                    <option value="10">Noviembre</option>
+                    <option value="11">Diciembre</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="search-year">Año</label>
+                <input type="number" id="search-year">
+            </div>
+        </div>
+
+        <div class="search-buttons">
+            <button id="btn-search">Buscar</button>
+            <button id="btn-today">Hoy</button>
+        </div>
+
+        <p id="search-message"></p>
+    </section>
+
+    <section class="calendar-nav">
+        <button id="prev-month">◀</button>
+        <h2 id="month-title"></h2>
+        <button id="next-month">▶</button>
+    </section>
+
+    <section class="calendar-weekdays">
+        <div>Dom</div><div>Lun</div><div>Mar</div><div>Mié</div>
+        <div>Jue</div><div>Vie</div><div>Sáb</div>
+    </section>
+
+    <section id="calendar-days" class="calendar-days"></section>
+
+    <section class="event-panel">
+        <h3 id="selected-date">Selecciona un día</h3>
+
+        <label>Título</label>
+        <input type="text" id="event-input">
+
+        <label>Hora</label>
+        <input type="time" id="event-time">
+
+        <label>Lugar</label>
+        <input type="text" id="event-place">
+
+        <label>Descripción</label>
+        <input type="text" id="event-desc">
+
+        <div class="event-buttons">
+            <button id="btn-save-event">Guardar</button>
+            <button id="btn-delete-event">Eliminar</button>
+        </div>
+
+        <p id="event-message"></p>
+    </section>
+
+</main>
+
+<script src="javascript/calendario.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,293 @@
+:root {
+    --azul: #1d3557;
+    --celeste: #f1faee;
+    --gris: #dee2e6;
+    --texto: #1d3557;
+    --verde: #2a9d8f;
+    --rojo: #e63946;
+    --blanco: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    color: var(--texto);
+}
+
+nav {
+    background: var(--rojo);
+    padding: 12px 20px;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.calendar-container {
+    width: min(900px, 94%);
+    margin: 24px auto;
+    background: var(--blanco);
+    border: 1px solid var(--gris);
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(29, 53, 87, 0.15);
+    padding: 20px;
+}
+
+.calendar-header {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.calendar-header h1 {
+    margin: 0;
+    color: var(--azul);
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.calendar-header p {
+    margin: 6px 0 0;
+    color: var(--rojo);
+    font-weight: bold;
+}
+
+.search-panel {
+    background: var(--celeste);
+    border: 1px solid var(--gris);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 16px;
+}
+
+.search-panel h2 {
+    margin-top: 0;
+    font-size: 1.05rem;
+    color: var(--azul);
+}
+
+.search-fields {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.92rem;
+    gap: 4px;
+    font-weight: 600;
+}
+
+input,
+select,
+button {
+    font: inherit;
+}
+
+input,
+select {
+    border: 1px solid var(--gris);
+    border-radius: 8px;
+    padding: 8px 10px;
+}
+
+.search-buttons,
+.event-buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 12px;
+    cursor: pointer;
+    background: var(--rojo);
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #c1121f;
+}
+
+button.secondary {
+    background: var(--azul);
+}
+
+button.danger {
+    background: #6c757d;
+}
+
+.search-message,
+.event-message {
+    min-height: 20px;
+    margin: 8px 0 0;
+    font-size: 0.92rem;
+}
+
+.calendar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 18px 0 10px;
+}
+
+.calendar-nav button {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--azul);
+}
+
+.calendar-nav h2 {
+    margin: 0;
+    color: var(--azul);
+}
+
+.calendar-weekdays,
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 6px;
+}
+
+.calendar-weekdays div {
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.85rem;
+    padding: 6px 0;
+    color: #457b9d;
+}
+
+.day-cell,
+.calendar-days .empty {
+    height: 58px;
+    border-radius: 10px;
+}
+
+.day-cell {
+    background: #ffffff;
+    border: 1px solid #edf2f4;
+    color: var(--azul);
+    font-weight: bold;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.day-cell:hover {
+    background: #f1f5f9;
+}
+
+.day-cell.today {
+    background: #e9ecef;
+    border: 2px solid var(--azul);
+}
+
+.day-cell.selected {
+    outline: 3px solid var(--rojo);
+}
+
+.day-cell.has-event::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--rojo);
+    bottom: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.calendar-days .empty {
+    background: transparent;
+    border: 1px dashed transparent;
+}
+
+.event-panel {
+    margin-top: 16px;
+    border-top: 1px solid var(--gris);
+    padding-top: 12px;
+}
+
+.event-panel h3 {
+    margin: 0 0 8px;
+    color: var(--azul);
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--azul);
+    color: #ffffff;
+    padding: 8px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    width: 180px;
+    z-index: 999;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+    text-align: left;
+}
+
+.tooltip strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.tooltip small {
+    opacity: 0.8;
+    display: block;
+}
+
+.day-cell:hover .tooltip {
+    display: block;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 700px) {
+    .search-fields {
+        grid-template-columns: 1fr;
+    }
+    .search-buttons,
+    .event-buttons {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 500px) {
+    .day-cell {
+        height: 45px;
+        font-size: 12px;
+    }
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+}
