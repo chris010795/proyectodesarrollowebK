@@ -16,6 +16,7 @@
     --white: #ffffff;
     --shadow: 0 10px 30px rgba(227, 6, 19, 0.12);
     --shadow-hover: 0 18px 40px rgba(0, 33, 71, 0.18);
+    --card-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
 }
 
 html {
@@ -110,7 +111,6 @@ body {
     width: 100%;
 }
 
-
 .pagina-encabezado {
     background: linear-gradient(135deg, var(--primary-color), #ff4d57);
     color: var(--white);
@@ -144,7 +144,7 @@ body {
 .card-producto {
     background: var(--white);
     border-radius: 18px;
-    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--card-shadow);
     overflow: hidden;
     transition: all 0.35s ease;
 }
@@ -222,7 +222,7 @@ body {
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.15);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
     padding-top: 1rem;
     font-size: 0.9rem;
     opacity: 0.85;

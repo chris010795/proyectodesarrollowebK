@@ -9,7 +9,7 @@ body {
     background-color: #f4f6f8;
     color: #333;
     line-height: 1.6;
-    padding-top: 90px; /* 👈 importante por header fijo */
+    padding-top: 90px; 
 }
 
 .contenedor {
@@ -18,7 +18,6 @@ body {
     margin: 0 auto;
 }
 
-/* ===== HEADER NUEVO ===== */
 .header {
     background-color: #ffffff;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -37,7 +36,6 @@ body {
     align-items: center;
 }
 
-/* LOGO */
 .logo-container {
     display: flex;
     align-items: center;
@@ -57,7 +55,6 @@ body {
     text-decoration: none;
 }
 
-/* MENU */
 .nav-links {
     display: flex;
     list-style: none;
@@ -78,7 +75,6 @@ body {
     background: rgba(227,6,19,0.1);
 }
 
-/* ===== CONTENIDO ===== */
 
 .pagina-encabezado {
     background-color: #ffffff;
@@ -169,7 +165,6 @@ body {
     margin-top: 10px;
 }
 
-/* ===== FOOTER NUEVO ===== */
 
 .footer {
     background-color: #002147;
@@ -198,7 +193,6 @@ body {
     font-size: 0.9rem;
 }
 
-/* ===== RESPONSIVE ===== */
 
 @media (max-width: 768px) {
     .pagina-encabezado h2 {

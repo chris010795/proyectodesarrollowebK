@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let valido = true;
 
-        // ===== NOMBRE =====
         if (nombre.value.trim() === "") {
             mostrarError("errorNombre", "Ingrese su nombre completo.");
             valido = false;
@@ -33,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
             valido = false;
         }
 
-        // ===== TELEFONO =====
         if (telefono.value.trim() === "") {
             mostrarError("errorTelefono", "Ingrese su número de teléfono.");
             valido = false;
@@ -42,19 +40,16 @@ document.addEventListener("DOMContentLoaded", () => {
             valido = false;
         }
 
-        // ===== TIPO =====
         if (tipo.value === "") {
             mostrarError("errorTipo", "Seleccione el tipo de comentario.");
             valido = false;
         }
 
-        // ===== CALIFICACION =====
         if (calificacion.value === "") {
             mostrarError("errorCalificacion", "Seleccione una calificación.");
             valido = false;
         }
 
-        // ===== MENSAJE =====
         if (mensaje.value.trim() === "") {
             mostrarError("errorMensaje", "Escriba el detalle de su comentario.");
             valido = false;
@@ -63,13 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
             valido = false;
         }
 
-        // ===== CHECKBOX =====
         if (!acepta.checked) {
             mostrarError("errorAcepta", "Debe confirmar la información.");
             valido = false;
         }
 
-        // ===== EXITO =====
         if (valido) {
             mensajeExito.textContent = "Su encuesta fue enviada correctamente.";
             formulario.reset();
