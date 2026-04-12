@@ -9,6 +9,7 @@ body {
     background-color: #f4f6f8;
     color: #333;
     line-height: 1.6;
+    padding-top: 90px; /* 👈 importante por header fijo */
 }
 
 .contenedor {
@@ -17,36 +18,67 @@ body {
     margin: 0 auto;
 }
 
+/* ===== HEADER NUEVO ===== */
 .header {
-    background-color: #003859;
-    padding: 20px 0;
-}
-
-.logo {
-    text-align: center;
-    color: #ffffff;
-    margin-bottom: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
 .nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 15px 20px;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LOGO */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.company-logo {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #002147;
+    text-decoration: none;
+}
+
+/* MENU */
+.nav-links {
+    display: flex;
+    list-style: none;
     gap: 15px;
 }
 
-.nav a {
-    color: #ffffff;
+.nav-links a {
     text-decoration: none;
+    color: #333;
     font-weight: bold;
-    padding: 8px 12px;
+    padding: 6px 10px;
     border-radius: 8px;
 }
 
-.nav a:hover,
-.nav .activo {
-    background-color: #ed3237;
+.nav-links a:hover,
+.nav-links a.activo {
+    color: #E30613;
+    background: rgba(227,6,19,0.1);
 }
+
+/* ===== CONTENIDO ===== */
 
 .pagina-encabezado {
     background-color: #ffffff;
@@ -109,7 +141,7 @@ body {
 }
 
 .btn-enviar {
-    background-color: #ed3237;
+    background-color: #E30613;
     color: #ffffff;
     border: none;
     padding: 14px;
@@ -137,13 +169,36 @@ body {
     margin-top: 10px;
 }
 
+/* ===== FOOTER NUEVO ===== */
+
 .footer {
-    background-color: #003859;
+    background-color: #002147;
     color: white;
     text-align: center;
-    padding: 20px 0;
-    margin-top: 30px;
+    padding: 30px 0;
+    margin-top: 40px;
 }
+
+.footer-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.footer-logo-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.footer-bottom {
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+/* ===== RESPONSIVE ===== */
 
 @media (max-width: 768px) {
     .pagina-encabezado h2 {
@@ -152,5 +207,14 @@ body {
 
     .formulario-contenedor {
         padding: 20px;
+    }
+
+    .nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links {
+        justify-content: center;
     }
 }

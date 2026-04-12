@@ -1,11 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const productos = document.querySelectorAll(".card-producto");
+    console.log("Página de ubicación cargada");
 
-    productos.forEach((producto) => {
-        producto.addEventListener("click", () => {
-            alert("Producto seleccionado: " + producto.querySelector("h3").textContent);
+    const telefono = "+50498414321";
+
+    const btnLlamar = document.getElementById("btnLlamar");
+
+    if (btnLlamar) {
+        btnLlamar.addEventListener("click", () => {
+            window.location.href = "tel:" + telefono;
         });
-    });
+    }
 
 });

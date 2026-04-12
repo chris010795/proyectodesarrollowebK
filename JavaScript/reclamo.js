@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const acepta = document.getElementById("acepta");
     const mensajeExito = document.getElementById("mensajeExito");
 
+    // REGEX
+    const regexNombre = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+    const regexTelefono = /^[0-9]{8}$/;
+
     formulario.addEventListener("submit", (e) => {
         e.preventDefault();
 
@@ -17,26 +21,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let valido = true;
 
+        // ===== NOMBRE =====
         if (nombre.value.trim() === "") {
             mostrarError("errorNombre", "Ingrese su nombre completo.");
             valido = false;
-        }
-
-        if (telefono.value.trim() === "") {
-            mostrarError("errorTelefono", "Ingrese su número de teléfono.");
+        } else if (nombre.value.trim().length < 3) {
+            mostrarError("errorNombre", "El nombre debe tener al menos 3 caracteres.");
+            valido = false;
+        } else if (!regexNombre.test(nombre.value.trim())) {
+            mostrarError("errorNombre", "El nombre solo debe contener letras.");
             valido = false;
         }
 
+        // ===== TELEFONO =====
+        if (telefono.value.trim() === "") {
+            mostrarError("errorTelefono", "Ingrese su número de teléfono.");
+            valido = false;
+        } else if (!regexTelefono.test(telefono.value.trim())) {
+            mostrarError("errorTelefono", "El teléfono debe tener 8 números.");
+            valido = false;
+        }
+
+        // ===== TIPO =====
         if (tipo.value === "") {
             mostrarError("errorTipo", "Seleccione el tipo de comentario.");
             valido = false;
         }
 
+        // ===== CALIFICACION =====
         if (calificacion.value === "") {
             mostrarError("errorCalificacion", "Seleccione una calificación.");
             valido = false;
         }
 
+        // ===== MENSAJE =====
         if (mensaje.value.trim() === "") {
             mostrarError("errorMensaje", "Escriba el detalle de su comentario.");
             valido = false;
@@ -45,11 +63,13 @@ document.addEventListener("DOMContentLoaded", () => {
             valido = false;
         }
 
+        // ===== CHECKBOX =====
         if (!acepta.checked) {
             mostrarError("errorAcepta", "Debe confirmar la información.");
             valido = false;
         }
 
+        // ===== EXITO =====
         if (valido) {
             mensajeExito.textContent = "Su encuesta fue enviada correctamente.";
             formulario.reset();
