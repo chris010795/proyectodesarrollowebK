@@ -63,17 +63,34 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    padding: 6px 10px;
-    border-radius: 8px;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: 0.3s ease;
+    position: relative;
 }
 
 .nav-links a:hover,
 .nav-links a.activo {
-    color: #E30613;
-    background: rgba(227,6,19,0.1);
+    color: var(--primary-color);
 }
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    left: 0;
+    bottom: -6px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.activo::after {
+    width: 100%;
+}
+
+
 
 
 .pagina-encabezado {
