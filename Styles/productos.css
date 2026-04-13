@@ -38,7 +38,8 @@ body {
     margin: 0 auto;
 }
 
-.header {
+/* Header y Navegación */
+header {
     background: var(--white);
     box-shadow: var(--shadow);
     position: fixed;
@@ -47,69 +48,69 @@ body {
     z-index: 1000;
 }
 
-.nav {
+nav {
     max-width: 1200px;
     margin: 0 auto;
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-weight: 500;
+    color: var(--text-dark);
 }
 
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 0.7rem;
+    gap: 0.5rem;
 }
 
 .company-logo {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     object-fit: contain;
 }
 
 .logo-text {
     font-size: 1.8rem;
-    font-family: 'Nexa', sans-serif;
-    font-weight: 700;
+    font-weight: 900;
+    font-family: var(--nexa-black);
     color: var(--accent-color);
     text-decoration: none;
+    letter-spacing: -0.02em;
 }
 
 .nav-links {
     display: flex;
-    gap: 2rem;
     list-style: none;
+    gap: 2rem;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--text-dark);
     font-weight: 500;
-    transition: 0.3s ease;
-    position: relative;
+    transition: color 0.3s ease;
 }
 
-.nav-links a:hover,
-.nav-links a.activo {
-    color: var(--primary-color);
+.nav-links a:hover {
+    color: var(--accent-color);
 }
 
-.nav-links a::after {
-    content: "";
-    position: absolute;
-    width: 0;
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.hamburger span {
+    width: 25px;
     height: 3px;
-    left: 0;
-    bottom: -6px;
-    background: var(--primary-color);
-    transition: width 0.3s ease;
+    background: var(--accent-color);
+    transition: 0.3s;
 }
 
-.nav-links a:hover::after,
-.nav-links a.activo::after {
-    width: 100%;
-}
 
 .pagina-encabezado {
     background: linear-gradient(135deg, var(--primary-color), #ff4d57);
