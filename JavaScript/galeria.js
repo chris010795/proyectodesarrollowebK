@@ -17,7 +17,7 @@ class Carousel {
     }
 
     init() {
-        this.generateNavigationUI(); // 👈 ahora sí se crean botones
+        this.generateNavigationUI(); 
         this.updatePosition();
         this.tick();
     }
@@ -38,7 +38,7 @@ class Carousel {
         let newIndex = this.currentIndex + 1;
 
         if (newIndex > this.maxLimit) {
-            newIndex = 0; // vuelve al inicio
+            newIndex = 0; 
         }
 
         this.moveTo(newIndex);
@@ -48,7 +48,7 @@ class Carousel {
         let newIndex = this.currentIndex - 1;
 
         if (newIndex < 0) {
-            newIndex = this.maxLimit; // va al final
+            newIndex = this.maxLimit; 
         }
 
         this.moveTo(newIndex);
@@ -77,13 +77,13 @@ class Carousel {
         btnLeft.addEventListener("click", (e) => {
             e.preventDefault();
             this.movePrev();
-            this.resetTick(); // reinicia autoplay
+            this.resetTick(); 
         });
 
         btnRight.addEventListener("click", (e) => {
             e.preventDefault();
             this.moveNext();
-            this.resetTick(); // reinicia autoplay
+            this.resetTick(); 
         });
 
         this.carouselHolder.appendChild(btnLeft);

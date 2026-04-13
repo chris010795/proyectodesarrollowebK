@@ -109,7 +109,7 @@ nav {
 .titulo-galeria {
     font-size: 5rem;
     color: #111;
-    background-color: #e30613; /* rojo tipo tu diseño */
+    background-color: #e30613; 
     color: white;
     padding: 30px;
     margin-top: 20px;
@@ -125,7 +125,7 @@ nav {
 
 /*Descripcion Galeria*/
 .descripcion-galeria {
-    background-color: #e30613; /* rojo tipo tu diseño */
+    background-color: #e30613; 
     color: white;
     padding: 30px;
     margin-top: 20px;
