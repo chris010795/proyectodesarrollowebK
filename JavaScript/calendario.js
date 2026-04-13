@@ -1,200 +1,126 @@
+document.addEventListener("DOMContentLoaded", () => {
 let monthTitle = document.getElementById("month-title");
 let daysContainer = document.getElementById("calendar-days");
-
 let searchDay = document.getElementById("search-day");
 let searchMonth = document.getElementById("search-month");
 let searchYear = document.getElementById("search-year");
-
 let eventInput = document.getElementById("event-input");
 let eventTime = document.getElementById("event-time");
 let eventPlace = document.getElementById("event-place");
 let eventDesc = document.getElementById("event-desc");
-
 let eventMessage = document.getElementById("event-message");
 let selectedDateLabel = document.getElementById("selected-date");
-
 let currentDate = new Date();
-let currentMonth = currentDate.getMonth();
-let currentYear = currentDate.getFullYear();
-
-let selectedDay = null;
-
+let selectedDate = null;
 let events = {};
-
 const months = [
     "Enero","Febrero","Marzo","Abril","Mayo","Junio",
     "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
 ];
 
-function renderCalendar() {
+function key(y,m,d){
+    return `${y}-${m}-${d}`;
+}
 
-    monthTitle.textContent = months[currentMonth] + " " + currentYear;
-
+function renderCalendar(){
+    let y = currentDate.getFullYear();
+    let m = currentDate.getMonth();
+    monthTitle.textContent = `${months[m]} ${y}`;
     daysContainer.innerHTML = "";
-
-    let firstDay = new Date(currentYear, currentMonth, 1).getDay();
-    let lastDay = new Date(currentYear, currentMonth + 1, 0).getDate();
-
-    for (let i = 0; i < firstDay; i++) {
+    let first = new Date(y,m,1).getDay();
+    let last = new Date(y,m+1,0).getDate();
+    for(let i=0;i<first;i++){
         let empty = document.createElement("div");
         empty.classList.add("empty");
         daysContainer.appendChild(empty);
     }
 
-    for (let i = 1; i <= lastDay; i++) {
-
-        let day = document.createElement("div");
-        day.classList.add("day-cell");
-        day.textContent = i;
-
-        let key = currentYear + "-" + currentMonth + "-" + i;
-
-        if (events[key]) {
-            day.classList.add("has-event");
+    for(let d=1;d<=last;d++){
+        let cell = document.createElement("div");
+        cell.classList.add("day-cell");
+        cell.textContent = d;
+        let k = key(y,m,d);
+        if(events[k]){
+            cell.classList.add("has-event");
         }
-
         let today = new Date();
-        if (
-            i === today.getDate() &&
-            currentMonth === today.getMonth() &&
-            currentYear === today.getFullYear()
-        ) {
-            day.classList.add("today");
+        if(d === today.getDate() && m === today.getMonth() && y === today.getFullYear()){
+            cell.classList.add("today");
         }
-
-        day.onclick = function () {
-            selectDay(i);
+        cell.onclick = () => {
+            selectedDate = {y,m,d};
+            selectDay(y,m,d);
         };
-
-        daysContainer.appendChild(day);
+        daysContainer.appendChild(cell);
     }
 }
 
-function selectDay(day) {
-
-    selectedDay = day;
-
+function selectDay(y,m,d){
     document.querySelectorAll(".day-cell")
-        .forEach(d => d.classList.remove("selected"));
-
-    let cells = document.querySelectorAll(".day-cell");
-
-    let index = day - 1;
-
-    if (cells[index]) {
-        cells[index].classList.add("selected");
+    .forEach(c => c.classList.remove("selected"));
+    let cells = [...document.querySelectorAll(".day-cell")];
+    let found = cells.find(c => parseInt(c.textContent) === d);
+    if(found){
+        found.classList.add("selected");
     }
-
-    let key = currentYear + "-" + currentMonth + "-" + day;
-
-    if (events[key]) {
-        eventInput.value = events[key].title;
-        eventTime.value = events[key].time;
-        eventPlace.value = events[key].place;
-        eventDesc.value = events[key].desc;
-    } else {
+    let k = key(y,m,d);
+    if(events[k]){
+        eventInput.value = events[k].title;
+        eventTime.value = events[k].time;
+        eventPlace.value = events[k].place;
+        eventDesc.value = events[k].desc;
+    }else{
         eventInput.value = "";
         eventTime.value = "";
         eventPlace.value = "";
         eventDesc.value = "";
     }
-
-    selectedDateLabel.textContent =
-        day + " de " + months[currentMonth] + " " + currentYear;
+    selectedDateLabel.textContent = `${d} de ${months[m]} ${y}`;
 }
 
-function saveEvent() {
-
-    if (selectedDay === null) {
-        eventMessage.textContent = "Selecciona un día primero";
-        return;
-    }
-
-    if (eventInput.value.trim() === "") {
-        eventMessage.textContent = "El título es obligatorio";
-        return;
-    }
-
-    let key = currentYear + "-" + currentMonth + "-" + selectedDay;
-
-    events[key] = {
+document.getElementById("btn-save-event").onclick = () => {
+    if(!selectedDate) return;
+    let k = key(selectedDate.y, selectedDate.m, selectedDate.d);
+    events[k] = {
         title: eventInput.value,
         time: eventTime.value,
         place: eventPlace.value,
         desc: eventDesc.value
     };
-
-    eventMessage.textContent = "Evento guardado";
     renderCalendar();
-}
-
-function deleteEvent() {
-
-    if (selectedDay === null) {
-        eventMessage.textContent = "Selecciona un día primero";
-        return;
-    }
-
-    let key = currentYear + "-" + currentMonth + "-" + selectedDay;
-
-    delete events[key];
-
-    eventInput.value = "";
-    eventTime.value = "";
-    eventPlace.value = "";
-    eventDesc.value = "";
-
-    eventMessage.textContent = "Evento eliminado";
-
-    renderCalendar();
-}
-
-function changeMonth(value) {
-    currentMonth += value;
-
-    if (currentMonth < 0) {
-        currentMonth = 11;
-        currentYear--;
-    }
-
-    if (currentMonth > 11) {
-        currentMonth = 0;
-        currentYear++;
-    }
-
-    renderCalendar();
-}
-
-function goToday() {
-    let today = new Date();
-
-    currentMonth = today.getMonth();
-    currentYear = today.getFullYear();
-
-    renderCalendar();
-}
-
-function searchDate() {
-
-    currentMonth = parseInt(searchMonth.value);
-    currentYear = parseInt(searchYear.value);
-
-    renderCalendar();
-
-    if (searchDay.value) {
-        selectDay(parseInt(searchDay.value));
-    }
-}
-
-document.getElementById("btn-save-event").onclick = saveEvent;
-document.getElementById("btn-delete-event").onclick = deleteEvent;
-document.getElementById("btn-search").onclick = searchDate;
-document.getElementById("btn-today").onclick = goToday;
-document.getElementById("prev-month").onclick = function () {
-    changeMonth(-1);
 };
-document.getElementById("next-month").onclick = function () {
-    changeMonth(1);
+
+document.getElementById("btn-delete-event").onclick = () => {
+    if(!selectedDate) return;
+    let k = key(selectedDate.y, selectedDate.m, selectedDate.d);
+    delete events[k];
+    renderCalendar();
+};
+
+document.getElementById("btn-today").onclick = () => {
+    currentDate = new Date();
+    renderCalendar();
+};
+
+document.getElementById("btn-search").onclick = () => {
+    currentDate = new Date(
+        searchYear.value,
+        searchMonth.value,
+        searchDay.value || 1
+    );
+    renderCalendar();
+};
+
+document.getElementById("prev-month").onclick = () => {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    renderCalendar();
+};
+
+document.getElementById("next-month").onclick = () => {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    renderCalendar();
 };
 
 renderCalendar();
+
+});

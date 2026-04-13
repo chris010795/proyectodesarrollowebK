@@ -1,18 +1,93 @@
+:root {
+    --rojo-primario: #d90429;
+    --azul-oscuro: #001d3d;  
+    --blanco: #ffffff;
+    --gris-claro: #f8f9fa;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--blanco);
+    color: #333;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    border-bottom: 1px solid #eee;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img { height: 40px; }
+
+.brand-name {
+    font-weight: bold;
+    color: var(--azul-oscuro);
+    font-size: 1.2rem;
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.hero-banner {
+    background-color: var(--rojo-primario);
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px 5%;
+    text-align: center;
+}
+
+.hero-text h1 { 
+    font-size: 2.2rem; 
+    margin-bottom: 10px; 
+    margin-top: 0;
+}
+
+.hero-logo-box {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.hero-logo-box img { max-width: 180px; height: auto; }
+
+.calendar-container {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
 .locations-section {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-    margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .location-card {
-    background: var(--celeste);
-    border: 1px solid var(--gris);
-    border-radius: 14px;
-    padding: 16px;
+    max-width: 450px;
+    width: 100%;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    padding: 25px;
     text-align: center;
-    box-shadow: 0 6px 15px rgba(29, 53, 87, 0.1);
-    transition: 0.2s;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
 }
 
 .location-card:hover {
@@ -20,46 +95,70 @@
 }
 
 .location-card h2 {
-    color: var(--azul);
-    margin-bottom: 10px;
+    color: var(--azul-oscuro);
+    margin-top: 0;
+    font-size: 1.5rem;
 }
 
 .location-card img {
     width: 100%;
-    height: 150px;
+    height: 250px;
     object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 10px;
+    border-radius: 12px;
+    margin: 15px 0;
 }
 
 .location-card p {
-    font-size: 0.9rem;
-    margin: 6px 0;
+    font-size: 1rem;
+    margin: 8px 0;
+    color: #555;
 }
 
 .btn-map {
-    margin-top: 10px;
-    display: inline-block;
-    padding: 8px 12px;
-    background: var(--azul);
+    background: var(--azul-oscuro);
     color: white;
-    text-decoration: none;
+    padding: 12px 25px;
     border-radius: 8px;
-    transition: 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 15px;
+    font-weight: bold;
+    transition: background 0.2s;
 }
 
 .btn-map:hover {
-    transform: scale(1.05);
+    background: #003566;
 }
 
-@media (max-width: 800px) {
-    .locations-section {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.main-footer {
+    background-color: var(--azul-oscuro);
+    color: white;
+    text-align: center;
+    padding: 40px 0 20px 0;
+    margin-top: 60px;
 }
 
-@media (max-width: 500px) {
-    .locations-section {
-        grid-template-columns: 1fr;
+.footer-logo { height: 60px; margin-bottom: 15px; }
+
+.footer-content p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 25px;
+    padding-top: 15px;
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+@media (max-width: 768px) {
+    .hero-banner {
+        flex-direction: column;
+        gap: 30px;
     }
+    
+    .hero-text h1 { font-size: 1.8rem; }
 }
